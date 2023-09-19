@@ -208,3 +208,9 @@
     justify-content: space-between;
   }
 
+#tooltip-1.react-tooltip, #tooltip-2.react-tooltip, #tooltip-3.react-tooltip
+{
+  font-size: 13px;
+  width: 200px;
+}
+

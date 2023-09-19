@@ -10,7 +10,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Dashboard from './Components/Dashboard/Dashboard';
 // import Images from './Components/Images';
 // import "./Assets/css/newlogin.css";
-// import "./Assets/bootstrap/js/bootstrap.min";
+
 
 function App() {
 

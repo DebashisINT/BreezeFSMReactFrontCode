@@ -106,8 +106,13 @@ export default function ShopVisitDetailsFVGrid(props) {
   //   console.log('cellClicked', event);
   // }, []);
   useEffect(() => {
+    const branchIds = "1,118,119,120,121,122,123,124,125,127,128";
+    const stateIds = "15,3,35,1,24,19,16,2,28,8";
+    const filterName = "AT_WORK";
+    const type = "Attendance";
+    const userId= "378"
     // axios.post('http://localhost:5738/DashboardMenu/DashboardGridViewDetails?EMPCODE=EMG0000001&branchid=1,118,119,120,121,122,123,124,125,127,128&stateid=15,3,35,1,24,19,16,2,28,8&FilterName=AT_WORK&Type=Attendance&userid=378')
-    axios.post(`${ApiPort}/DashboardMenu/DashboardGridViewDetails?EMPCODE=${EMPID}&branchid=1,118,119,120,121,122,123,124,125,127,128&stateid=15,3,35,1,24,19,16,2,28,8&FilterName=AT_WORK&Type=Attendance&userid=378`)
+    axios.post(`${ApiPort}/DashboardMenu/DashboardGridViewDetails?EMPCODE=${EMPID}&branchid=${branchIds}&stateid=${stateIds}&FilterName=${filterName}&Type=${type}&userid=${userId}`)
       .then(function (response) {
         // handle success
         // const dataArray = Array.isArray(response.data) ? response.data : [];

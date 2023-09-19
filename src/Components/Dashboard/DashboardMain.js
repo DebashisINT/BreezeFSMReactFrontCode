@@ -1,15 +1,19 @@
-import React from 'react'
+import React from 'react';
+
+import { Tooltip } from 'react-tooltip';
 
 // import Images from '../Images';
 import './DashboardMain.css';
 import DashboardVisitTab from './DashboardVisitTab';
 import DashboardFieldVisitTab from './DashboardFieldVisitTab';
+import DashboardTeamVisitTab from './DashboardTeamVisitTab';
 
 export default function DashboardMain(props) {
 
   const ApiPort = props.apiPort;
   console.log("DashboardMain:", ApiPort);
 
+  
   return (
     <section className="content-wraper">
       <div className="dashboardHighlightWrap">
@@ -27,24 +31,32 @@ export default function DashboardMain(props) {
             <div className="tabs tabs-style-shape">
               <nav>
                 <ul role="tablist" className="tabItemsLI">
-
-                  <li role="presentation" id="tbsalesman" className="active" data-toggle="tooltip" 
-                  title="Get the Details of Total Employee, working or on leave and if anyone not using the app" data-placement="top">
-                    <a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">
+                  <li role="presentation" id="tbsalesman" className="active">
+                    <a href="#profile" aria-controls="profile" role="tab" data-toggle="tab" data-tooltip-id="tooltip-1" data-tooltip-content="Get the Details of Total Employee, working or on leave and if anyone not using the app">
                       <svg viewBox="0 0 80 60" preserveAspectRatio="none"><use xlinkHref="#tabshape"></use></svg>
                       <svg viewBox="0 0 80 60" preserveAspectRatio="none"><use xlinkHref="#tabshape"></use></svg>
                       <span>Visit</span>
                     </a>
                   </li>
+                  <Tooltip id="tooltip-1" place="top-start" style={{ backgroundColor: "#0a9b72", color: "#fff", opacity: "1" }}/>
 
-                  <li role="presentation" id="tbFieldVisit" className="" data-toggle="tooltip" 
-                  title="Get the Details of Total Employee, working or on leave and if anyone not using the app" data-placement="top">
-                    <a href="#FieldVisit" aria-controls="FieldVisit" role="tab" data-toggle="tab">
+                  <li role="presentation" id="tbFieldVisit" className="">
+                    <a href="#FieldVisit" aria-controls="FieldVisit" role="tab" data-toggle="tab" data-tooltip-id="tooltip-2" data-tooltip-content="Get the Details of Total Employee, working or on leave and if anyone not using the app">
                       <svg viewBox="0 0 80 60" preserveAspectRatio="none"><use xlinkHref="#tabshape"></use></svg>
                       <svg viewBox="0 0 80 60" preserveAspectRatio="none"><use xlinkHref="#tabshape"></use></svg>
                       <span>Field  Visit</span>
                     </a>
                   </li>
+                  <Tooltip id="tooltip-2" style={{ backgroundColor: "#0a9b72", color: "#fff", opacity: "1" }}/>
+
+                  <li role="presentation" id="tbteamVisit" className="">
+                    <a href="#teamVisit" aria-controls="teamVisit" role="tab" data-toggle="tab" data-tooltip-id="tooltip-3" data-tooltip-content="Get the Details of Total Employee, working or on leave and if anyone not using the app">
+                      <svg viewBox="0 0 80 60" preserveAspectRatio="none"><use xlinkHref="#tabshape"></use></svg>
+                      <svg viewBox="0 0 80 60" preserveAspectRatio="none"><use xlinkHref="#tabshape"></use></svg>
+                      <span>Team Visit</span>
+                    </a>
+                  </li>
+                  <Tooltip id="tooltip-3" style={{ backgroundColor: "#0a9b72", color: "#fff", opacity: "1" }}/>
 
                 </ul>
               </nav>
@@ -54,15 +66,20 @@ export default function DashboardMain(props) {
 
                   <DashboardVisitTab apiPort={ApiPort}/>
                   
-
                 </div>
 
                 <div role="tabpanel" className="tab-pane" id="FieldVisit">
 
                   <DashboardFieldVisitTab apiPort={ApiPort}/>
                   
-
                 </div>
+
+                <div role="tabpanel" className="tab-pane" id="teamVisit">
+
+                  <DashboardTeamVisitTab apiPort={ApiPort}/>
+                  
+                </div>
+
               </div>
               
             </div>
