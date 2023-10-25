@@ -18,5 +18,13 @@ const Images = {
     Visit_NotLoggedIn : require('../Assets/images/not-loggedin.png'),
     ShowDataButtonIcon : require('../Assets/images/dashboard-summary.png'),
     LoaderSpinner : require('../Assets/images/Spinner.gif'),
+
+    DashboardAttendance_TotalEmployee : require('../Assets/images/employees.png'),
+    DashboardAttendance_OnTimePercentage : require('../Assets/images/percentage.png'),
+    DashboardAttendance_OnTimeToday : require('../Assets/images/on-time.png'),
+    DashboardAttendance_LateToday : require('../Assets/images/late-ent.png'),
+    DashboardAttendance_AbsentToday : require('../Assets/images/absent.png'),
+
+    Maximize_Icon : require('../Assets/images/maximize.png'),
 }
 export default Images;

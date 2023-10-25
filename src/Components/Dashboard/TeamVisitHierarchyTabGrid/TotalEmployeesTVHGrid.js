@@ -9,8 +9,8 @@ import ExcelJS from 'exceljs';
 import { createRoot } from 'react-dom/client';
 import { AgGridReact } from 'ag-grid-react'; // the AG Grid React Component
 
-export default function TotalEmployeesTVGrid(props) {
-    const ApiPort = props.apiPort;
+export default function TotalEmployeesTVHGrid(props) {
+  const ApiPort = props.apiPort;
   
        // const [productData, setProductData] = useState({ products: [] });
     const gridRef = useRef();
@@ -83,7 +83,7 @@ export default function TotalEmployeesTVGrid(props) {
       const userId = "378";
       
     
-      axios.post(`${ApiPort}/DashboardMenu/DashboardGridViewTeam?branchid=${branchIds}&stateid=${stateIds}&FilterName=${filterName}&Type=${type}&userid=${userId}`)
+      axios.post(`${ApiPort}/DashboardMenu/DashboardGridViewTeamH?branchid=${branchIds}&stateid=${stateIds}&FilterName=${filterName}&Type=${type}&userid=${userId}`)
       .then(function (response) {
         // handle success
         // const dataArray = Array.isArray(response.data) ? response.data : [];

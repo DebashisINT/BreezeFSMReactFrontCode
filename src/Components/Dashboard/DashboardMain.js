@@ -7,6 +7,8 @@ import './DashboardMain.css';
 import DashboardVisitTab from './DashboardVisitTab';
 import DashboardFieldVisitTab from './DashboardFieldVisitTab';
 import DashboardTeamVisitTab from './DashboardTeamVisitTab';
+import DashboardTeamVisitHTab from './DashboardTeamVisitHTab';
+import DashboardAttendanceTab from './DashboardAttendanceTab';
 
 export default function DashboardMain(props) {
 
@@ -58,6 +60,24 @@ export default function DashboardMain(props) {
                   </li>
                   <Tooltip id="tooltip-3" style={{ backgroundColor: "#0a9b72", color: "#fff", opacity: "1" }}/>
 
+                  <li role="presentation" id="tbteamVisitHierarchy" className="">
+                    <a href="#teamVisitHierarchy" aria-controls="teamVisitHierarchy" role="tab" data-toggle="tab" data-tooltip-id="tooltip-4" data-tooltip-content="Get the Details of Total Employee, working or on leave and if anyone not using the app">
+                      <svg viewBox="0 0 80 60" preserveAspectRatio="none"><use xlinkHref="#tabshape"></use></svg>
+                      <svg viewBox="0 0 80 60" preserveAspectRatio="none"><use xlinkHref="#tabshape"></use></svg>
+                      <span>Team Visit - Hierarchy</span>
+                    </a>
+                  </li>
+                  <Tooltip id="tooltip-4" style={{ backgroundColor: "#0a9b72", color: "#fff", opacity: "1" }}/>
+
+                  <li role="presentation" id="tbAttendance" className="">
+                    <a href="#Attendance" aria-controls="Attendance" role="tab" data-toggle="tab" data-tooltip-id="tooltip-5" data-tooltip-content="Get the Details of Total Employee, working or on leave and if anyone not using the app">
+                      <svg viewBox="0 0 80 60" preserveAspectRatio="none"><use xlinkHref="#tabshape"></use></svg>
+                      <svg viewBox="0 0 80 60" preserveAspectRatio="none"><use xlinkHref="#tabshape"></use></svg>
+                      <span>Attendance</span>
+                    </a>
+                  </li>
+                  <Tooltip id="tooltip-5" style={{ backgroundColor: "#0a9b72", color: "#fff", opacity: "1" }}/>
+
                 </ul>
               </nav>
 
@@ -77,6 +97,18 @@ export default function DashboardMain(props) {
                 <div role="tabpanel" className="tab-pane" id="teamVisit">
 
                   <DashboardTeamVisitTab apiPort={ApiPort}/>
+                  
+                </div>
+
+                <div role="tabpanel" className="tab-pane" id="teamVisitHierarchy">
+
+                  <DashboardTeamVisitHTab apiPort={ApiPort}/>
+                  
+                </div>
+
+                <div role="tabpanel" className="tab-pane" id="Attendance">
+
+                  <DashboardAttendanceTab apiPort={ApiPort}/>
                   
                 </div>
 
