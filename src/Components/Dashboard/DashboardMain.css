@@ -208,7 +208,374 @@
     justify-content: space-between;
   }
 
-#tooltip-1.react-tooltip, #tooltip-2.react-tooltip, #tooltip-3.react-tooltip
+    ul.nopad {
+        list-style-type: none;
+        padding: 0;
+    }
+
+        ul.nopad > li {
+            display: inline-block;
+            min-width: 18.7%;
+        }
+
+            ul.nopad > li:not(:last-child) {
+                margin-right: 1%;
+            }
+
+    .colorBox {
+        /*background: #4f4e94;*/
+        /*Rev 2.0*/
+        /*background: linear-gradient(150deg, rgb(79 78 148) 0%, rgb(140 139 221) 100%) !important;*/
+        background: linear-gradient(150deg, rgb(124 110 8 / 90%) 0%, rgb(211 191 58 / 90%) 100%) !important;
+        /*Rev end 2.0*/
+        color: #fff;
+        border-radius: 8px;
+        overflow: hidden;
+        min-height: 80px;
+        /*Rev 2.0*/
+        border: 2px solid #fff;
+        box-shadow: 0px 5px 20px rgb(0 0 0 / 23%);
+        /*Rev end 2.0*/
+    }
+
+        .colorBox.c1 {
+            /*background: #309b60;*/
+            /*Rev 2.0*/
+            /*background: linear-gradient(150deg, #309b60 0%, rgb(108 203 150) 100%) !important;*/
+            background: linear-gradient(150deg, rgb(5 129 94 / 90%) 0%, rgb(45 223 174 / 90%) 100%) !important;
+            /*Rev end 2.0*/
+        }
+
+        .colorBox.c2 {
+            /*background: #3798c5;*/
+            /*Rev 2.0*/
+            /*background: linear-gradient(150deg, #2187b7 0%, rgb(105 187 225) 100%) !important;*/
+            background: linear-gradient(150deg, rgb(46 100 6 / 90%) 0%, rgb(106 189 46 / 90%) 100%) !important;
+            /*Rev end 2.0*/
+        }
+
+        .colorBox.c3 {
+            /*background: #e68929;*/
+            /*Rev 2.0*/
+            /*background: linear-gradient(150deg, #cb7114 0%, rgb(245 183 118) 100%) !important;*/
+            background: linear-gradient(150deg, rgb(104 11 189 / 90%) 0%, rgb(168 99 231 / 90%) 100%) !important;
+            /*Rev end 2.0*/
+        }
+
+        .colorBox.c4 {
+            /*background: #882626;*/
+            /*Rev 2.0*/
+            /*background: linear-gradient(150deg, #882626 0%, rgb(227 112 112) 100%) !important;*/
+            background: linear-gradient(150deg, rgb(199 5 29 / 90%) 0%, rgb(251 95 114 / 90%) 100%) !important;
+            /*Rev end 2.0*/
+        }
+
+    .infoWrp {
+        padding: 12px 15px;
+        position: relative;
+        /*Rev 2.0*/
+        padding-left: 60px;
+        /*Rev end 2.0*/
+    }
+
+        .infoWrp > .nums {
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+    .toggleFullScreen {
+        top: 29px;
+        position: absolute;
+        right: 35px;
+        font-size: 14px;
+        display: block;
+        z-index: 5;
+        cursor: pointer;
+        width: 30px;
+        height: 30px;
+        border-radius: 50px;
+        background: #d6e9ff;
+        text-align: center;
+        line-height: 30px;
+        color: #082f5c;
+    }
+
+    .infoWrp > .txts {
+        font-size: 80%;
+    }
+
+    .mrLinks {
+        /*cursor: pointer;*/
+        /*Rev 2.0*/
+        /*background: rgba(0, 0, 0, 0.34);
+        padding: 5px 10px;*/
+        /*Rev end 2.0*/
+        font-size: 80%;
+    }
+
+        .mrLinks > .fa {
+            float: right;
+            margin-top: 4px;
+        }
+    /*Rev 2.0*/
+    .fltd {
+        /*position: absolute;
+        right: 16px;
+        top: 16px;*/
+        font-size: 22px !important;
+        color: rgb(255 255 255);
+        /*padding: 10px;*/
+        /*border-radius: 50px;
+        background: #ffffff45;*/
+        /*width: 50px;
+        height: 50px;*/
+        text-align: center;
+        /*line-height: 30px;*/
+    }
+
+    .icon-box-left {
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        width: 50px;
+        height: 80px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: rgb(255 255 255 / 70%);
+    }
+
+    /*Rev end 2.0*/
+
+    .box-holder {
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        border-top: 4px solid rgb(13, 105, 67);
+        background: #fff;
+    }
+
+        .box-holder .hdd-rp {
+            font-size: 15px;
+            font-weight: 600;
+            padding: 8px 15px;
+            color: #555;
+        }
+
+        .box-holder .bxd-cont {
+            padding: 15px;
+        }
+
+    .table {
+        width: 100%;
+    }
+
+        .table .thead-light th {
+            color: #495057;
+            background-color: #e9ecef;
+            border-color: #dee2e6;
+        }
+
+    .badge {
+        font-weight: 500;
+        font-size: 12px;
+    }
+
+    .badge-warning {
+        color: #212529;
+        background-color: #ffc107;
+    }
+
+    .badge-success {
+        color: #fff;
+        background-color: #28a745;
+    }
+
+    .badge-danger {
+        color: #fff;
+        background-color: #dc3545;
+    }
+
+    #chartdiv {
+        width: 100%;
+        height: 450px;
+    }
+
+    .mTop10 {
+        margin-top: 10px;
+    }
+
+    .pignose-calendar {
+        width: 100%;
+        max-width: 100% !important;
+    }
+
+        .pignose-calendar .pignose-calendar-top,
+        .pignose-calendar {
+            box-shadow: none !important;
+        }
+
+    .modal-title {
+        color: #fff
+    }
+
+    /*#getTotalA, #getAbsentToday, #getOnTimeToday, #getLateToday {
+        cursor: pointer;
+    }*/
+
+    .emp-dropdown-title > .font-normal {
+        font-size: 16px !important;
+        font-weight: 600 !important;
+        color: #555 !important;
+    }
+
+    .pignose-calendar {
+        width: 100% !important
+    }
+
+        .pignose-calendar .pignose-calendar-body {
+            padding: 0.3em;
+        }
+
+        .pignose-calendar .pignose-calendar-header {
+            margin-top: 0;
+        }
+
+        .pignose-calendar .pignose-calendar-top {
+            padding: 0.5em 0;
+        }
+
+            .pignose-calendar .pignose-calendar-top .pignose-calendar-top-date {
+                padding: 0.5em 0;
+            }
+
+            .pignose-calendar .pignose-calendar-top .pignose-calendar-top-month, .pignose-calendar .pignose-calendar-top .pignose-calendar-top-year {
+                display: inline-block;
+            }
+
+    .sltemp {
+        padding: 0px 10px 0 15px;
+        /* margin-top: 5px; */
+        max-width: 150px;
+    }
+
+    .lagendInfo {
+        font-size: 16px !important;
+        margin: 10px 0;
+        font-weight: 500 !important;
+    }
+
+    #leavesS tr td {
+        font-size: 14px !important;
+        font-weight: 400 !important;
+    }
+
+    .lagendInfo .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 15px;
+        display: inline-block;
+        margin-right: 7px;
+    }
+
+        .lagendInfo .dot.Present {
+            background: #50c36e;
+        }
+
+        .lagendInfo .dot.Leave {
+            background: #757272;
+        }
+
+    .separt {
+        width: 20px;
+        text-align: center;
+        display: inline-block;
+    }
+
+    .lagendInfo .dot.Absent {
+        background: #da3131;
+    }
+
+    .tableStyle > thead > tr > th {
+        font-size: 14px !important;
+        background: #5568f1;
+        border-top: 1px solid #5568ef;
+        color: #fff;
+        font-weight: 400;
+        border-bottom: 1px solid #1f32b5;
+        padding: 10px 12px;
+    }
+
+    .tableStyle > tbody > tr > td, .dataTables_info, .pagination a {
+        font-size: 14px;
+    }
+
+    #chartdiv .amcharts-amexport-menu {
+        margin-top: -22px;
+    }
+
+    #subChartTble > tbody > tr > td {
+        white-space: nowrap
+    }
+
+    .calBackdrop {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+        background: #333;
+        left: 0;
+        opacity: 0.5;
+        z-index: 9998;
+        display: none;
+    }
+
+    .calPopup {
+        position: fixed;
+        top: 50%;
+        background: #fff;
+        width: 430px;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding-top: 20px;
+        z-index: 9999;
+        display: none;
+        box-shadow: 0 5px 5px rgba(0,0,0,0.15), 7px 5px 5px rgba(0,0,0,0.05);
+    }
+
+        .calPopup.in, .calBackdrop.in {
+            display: block;
+        }
+
+        .calPopup .closbtn {
+            cursor: pointer;
+            font-size: 13px;
+            /* padding: 10px; */
+            position: absolute;
+            right: 9px;
+            top: 6px;
+        }
+
+            .calPopup .closbtn:hover {
+                color: red;
+            }
+    /*Rev 3.0*/
+    .pignose-calendar .pignose-calendar-unit.pignose-calendar-unit-active a {
+        background-color: #175295;
+    }
+    /*Rev end 3.0*/
+
+    .am5exporting-menu.am5exporting-align-right, .am5exporting-icon.am5exporting-align-right, .am5exporting-list.am5exporting-align-right {
+        right: 12px !important;
+        bottom: 4px;
+    }
+
+    .am5exporting-icon {
+        background: rgb(207 207 207);
+    }
+
+
+
+#tooltip-1.react-tooltip, #tooltip-2.react-tooltip, #tooltip-3.react-tooltip, #tooltip-4.react-tooltip
 {
   font-size: 13px;
   width: 200px;

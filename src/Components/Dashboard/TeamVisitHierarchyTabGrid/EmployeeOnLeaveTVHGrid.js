@@ -2,17 +2,16 @@ import 'ag-grid-community/styles/ag-grid.css';
 import 'ag-grid-community/styles/ag-theme-alpine.css';
 import React, {useCallback, useEffect, useState, useMemo, useRef} from 'react';
 import axios from 'axios';
-import Images from '../../Images';
 
+import Images from '../../Images';
 import ExcelJS from 'exceljs';
 
 import { createRoot } from 'react-dom/client';
 import { AgGridReact } from 'ag-grid-react'; // the AG Grid React Component
 
-export default function TotalEmployeesTVGrid(props) {
-    const ApiPort = props.apiPort;
-  
-       // const [productData, setProductData] = useState({ products: [] });
+export default function EmployeeOnLeaveTVHGrid(props) {
+  const ApiPort = props.apiPort;
+    // const [productData, setProductData] = useState({ products: [] });
     const gridRef = useRef();
   
     const [loading, setLoading] = useState(true);
@@ -21,21 +20,13 @@ export default function TotalEmployeesTVGrid(props) {
     const gridStyle = useMemo(() => ({ height: '100%',  width: '100%' }), []);
     const [rowData, setRowData] = useState([]); // Set rowData to Array of Objects, one Object per Row
   
-  //   const [currentPage, setCurrentPage] = useState(1);
-  // const [totalPages, setTotalPages] = useState(1);
-  
     // Each Column Definition results in one Column.
     const [columnDefs, setColumnDefs] = useState([
-        { field: 'Employee', filter: true, autoHeight: true, floatingFilter: true},
-        { field: 'Designation', filter: 'agTextColumnFilter', autoHeight: true, floatingFilter: true },
-        { field: 'EmployeeID', filter: true, autoHeight: true, floatingFilter: true },
-        { field: 'Branch', filter: true, autoHeight: true, floatingFilter: true },
-        { field: 'Supervisor', filter: true, autoHeight: true, floatingFilter: true },
-        { field: 'SupervisorID', filter: true, autoHeight: true, floatingFilter: true },
-        { field: 'LoginID', filter: true, autoHeight: true, floatingFilter: true },
-        { field: 'Channel', filter: true, autoHeight: true, floatingFilter: true },
-        { field: 'Circle', filter: true, autoHeight: true, floatingFilter: true },
-        { field: 'Section', filter: true, autoHeight: true, floatingFilter: true }
+      { field: 'Employee', filter: true, autoHeight: true, floatingFilter: true},
+      { field: 'Designation', filter: 'agTextColumnFilter', autoHeight: true, floatingFilter: true },
+      { field: 'EmployeeID', filter: true, autoHeight: true, floatingFilter: true },
+      { field: 'Branch', filter: true, autoHeight: true, floatingFilter: true },
+      { field: 'AppliedLeaveDate', filter: true, autoHeight: true, floatingFilter: true },
     ]);
   
     // DefaultColDef sets props common to all Columns
@@ -67,40 +58,27 @@ export default function TotalEmployeesTVGrid(props) {
     // const cellClickedListener = useCallback( event => {
     //   console.log('cellClicked', event);
     // }, []);
-    // Debounce the grid resizing function
-    const onGridResize = useMemo(() => {
-      const debouncedResize = debounce(() => {
-        gridRef.current.api.sizeColumnsToFit();
-      }, 300); // Adjust the debounce delay as needed
-      return debouncedResize;
-    }, []);
-  
     useEffect(() => {
-      const branchIds = "1,118,119,120,121,122,123,124,125,127,128";
-      const stateIds = "15,3,35,1,24,19,16,2,28,8";
-      const filterName = "EMP";
-      const type = "Attendance";
-      const userId = "378";
-      
-    
-      axios.post(`${ApiPort}/DashboardMenu/DashboardGridViewTeam?branchid=${branchIds}&stateid=${stateIds}&FilterName=${filterName}&Type=${type}&userid=${userId}`)
-      .then(function (response) {
-        // handle success
-        // const dataArray = Array.isArray(response.data) ? response.data : [];
-        setRowData(response.data);
-        // console.log('EMP-data', response.data);
-        setLoading(false);
-      })
-      .catch(function (error) {
-        // handle error
-        console.log(error);
-      });
-      return () => {
-        // Remove the resize event listener when unmounting
-        window.removeEventListener('resize', onGridResize);
-      };
-    }, [onGridResize]); // Add currentPage to the dependency array
+         const branchIds = "1,118,119,120,121,122,123,124,125,127,128";
+         const stateIds = "15,3,35,1,24,19,16,2,28,8";
+         const filterName = "ON_LEAVE";
+         const type = "Attendance";
+         const userId = "378";
   
+      axios.post(`${ApiPort}/DashboardMenu/DashboardGridViewTeamH?branchid=${branchIds}&stateid=${stateIds}&FilterName=${filterName}&Type=${type}&userid=${userId}`)
+        .then(function (response) {
+          // handle success
+          // const dataArray = Array.isArray(response.data) ? response.data : [];
+          
+          setRowData(response.data);
+         //  console.log('EMP-data', response.data);
+         setLoading(false);
+        })
+        .catch(function (error) {
+          // handle error
+          console.log(error);
+        })
+    }, []);
   
   
     const exportToExcel = () => {
@@ -130,7 +108,7 @@ export default function TotalEmployeesTVGrid(props) {
         const url = window.URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url;
-        a.download = 'Employee Attendance details - Total Employees.xlsx';
+        a.download = 'Employee Attendance details - Employees On Leave.xlsx';
         a.click();
     
         // Release the object URL to free up memory
@@ -143,19 +121,20 @@ export default function TotalEmployeesTVGrid(props) {
       <div style={containerStyle}>
   
       {loading && ( 
-            <div className="loader-gif">
-              
-                <img src={Images.LoaderGif} alt=""/>
-              
-            </div>
-          )}
+       <div className="loader-gif">
+         
+           <img src={Images.LoaderGif} alt=""/>
+         
+       </div>
+     )}
   
-            <div className='grid-header-title'>
-                <h4 className='mb-4'>Employee Attendance details - Total Employees</h4>
-                <button className='icn' data-toggle="tooltip" title="Export To Excel" onClick={exportToExcel} style={{ marginBottom: '5px', fontWeight: 'bold' }}>
+          <div className='grid-header-title'>
+            <h4 className='mb-4'>Employee Attendance details - Employees On Leave</h4>
+            <button className='icn' data-toggle="tooltip" title="Export To Excel" onClick={exportToExcel} style={{ marginBottom: '5px', fontWeight: 'bold' }}>
                 <img src={Images.ExportExcel} alt=""/>
-                </button>
-             </div>
+            </button>
+          </div>
+  
           <div style={{ display: 'flex', flexDirection: 'row', height: '100%' }}>
           <div style={{ overflow: 'hidden', flexGrow: '1' }}>
           <div style={gridStyle} className="ag-theme-alpine">
@@ -164,6 +143,7 @@ export default function TotalEmployeesTVGrid(props) {
                   rowData={rowData} // Row Data for Rows
                   columnDefs={columnDefs} // Column Defs for Columns
                   defaultColDef={defaultColDef} // Default Column Properties
+                  
                   animateRows={true} // Optional - set to 'true' to have rows animate when sorted
                   rowSelection='multiple' // Options - allows click selection of rows
                   // onCellClicked={cellClickedListener} // Optional - registering for Grid Event
@@ -171,9 +151,10 @@ export default function TotalEmployeesTVGrid(props) {
                   paginationPageSize={paginationPageSize}
                   cacheBlockSize={10}
                   domLayout={'autoHeight'}
-                  
+                  overlayLoadingTemplate={
+                    '<span className="ag-overlay-loading-center">Data loading...</span>'
+                  }
                   onGridReady={onGridReady}
-                  onGridSizeChanged={onGridResize}
                   
               />
             </div>
@@ -183,13 +164,4 @@ export default function TotalEmployeesTVGrid(props) {
       </div>
       </>
     )
-  }
-  
-  function debounce(func, delay) {
-    let timeout;
-    return function (...args) {
-      const context = this;
-      clearTimeout(timeout);
-      timeout = setTimeout(() => func.apply(context, args), delay);
-    };
 }

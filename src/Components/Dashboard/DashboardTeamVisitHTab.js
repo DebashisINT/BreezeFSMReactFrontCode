@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 import Images from '../Images';
 import axios from 'axios';
 import $ from 'jquery';
-import TotalEmployeesTVGrid from './TeamVisitTabGrid/TotalEmployeesTVGrid';
-import EmployeeNotLoggedInTVGrid from './TeamVisitTabGrid/EmployeeNotLoggedInTVGrid';
-import EmployeeOnLeaveTVGrid from './TeamVisitTabGrid/EmployeeOnLeaveTVGrid';
-import EmployeeAtWorkTVGrid from './TeamVisitTabGrid/EmployeeAtWorkTVGrid';
 
-export default function DashboardTeamVisitTab(props) {
-    const ApiPort = props.apiPort;
+import EmployeeNotLoggedInTVHGrid from './TeamVisitHierarchyTabGrid/EmployeeNotLoggedInTVHGrid';
+import EmployeeOnLeaveTVHGrid from './TeamVisitHierarchyTabGrid/EmployeeOnLeaveTVHGrid';
+import EmployeeAtWorkTVHGrid from './TeamVisitHierarchyTabGrid/EmployeeAtWorkTVHGrid';
+import TotalEmployeesTVHGrid from './TeamVisitHierarchyTabGrid/TotalEmployeesTVHGrid';
+
+export default function DashboardTeamVisitHTab(props) {
+  const ApiPort = props.apiPort;
 
     const [totalEmployee, setTotalEmployee] = useState("***");
     const [employeeAtWork, setEmployeeAtWork] = useState("***");
@@ -23,10 +24,10 @@ export default function DashboardTeamVisitTab(props) {
 
     const ShowVisitData = () => {
 
-        $('#a4tv').addClass('zoom');
-        $('#a1tv').addClass('zoom');
-        $('#a2tv').addClass('zoom');
-        $('#a3tv').addClass('zoom');
+        $('#a4tvH').addClass('zoom');
+        $('#a1tvH').addClass('zoom');
+        $('#a2tvH').addClass('zoom');
+        $('#a3tvH').addClass('zoom');
 
         setTotalEmployee(<img src={Images.LoaderSpinner} alt=''/>);
         setEmployeeAtWork(<img src={Images.LoaderSpinner} alt=''/>);
@@ -36,7 +37,7 @@ export default function DashboardTeamVisitTab(props) {
          const branchIds = "1,118,119,120,121,122,123,124,125,127,128";
          const stateIds = "15,3,35,1,24,19,16,2,28,8";
         
-        axios.post(`${ApiPort}/DashboardMenu/GetDashboardDataVisit`, {
+        axios.post(`${ApiPort}/DashboardMenu/GetDashboardDataVisitH`, {
             stateid: stateIds,
             branchid: branchIds
           })
@@ -52,7 +53,7 @@ export default function DashboardTeamVisitTab(props) {
     const VisitEmployeeStrengthBox = () => {
 
         $('.widgBox').removeClass('active');
-        $('#a4tv').addClass('active');
+        $('#a4tvH').addClass('active');
 
         setShowTotalEmployeesGrid(true);
         setShowEmployeeAtWorkGrid(false);
@@ -63,7 +64,7 @@ export default function DashboardTeamVisitTab(props) {
     const VisitEmployeeAtWorkBox = () => {
 
         $('.widgBox').removeClass('active');
-        $('#a1tv').addClass('active');
+        $('#a1tvH').addClass('active');
 
         setShowTotalEmployeesGrid(false);
         setShowEmployeeAtWorkGrid(true);
@@ -73,7 +74,7 @@ export default function DashboardTeamVisitTab(props) {
 
     const VisitEmployeeOnLeaveBox = () => {
         $('.widgBox').removeClass('active');
-        $('#a2tv').addClass('active');
+        $('#a2tvH').addClass('active');
 
         setShowTotalEmployeesGrid(false);
         setShowEmployeeAtWorkGrid(false);
@@ -83,7 +84,7 @@ export default function DashboardTeamVisitTab(props) {
 
     const VisitEmployeeNotLoggedInBox = () => {
         $('.widgBox').removeClass('active');
-        $('#a3tv').addClass('active');
+        $('#a3tvH').addClass('active');
 
         setShowTotalEmployeesGrid(false);
         setShowEmployeeAtWorkGrid(false);
@@ -98,7 +99,7 @@ export default function DashboardTeamVisitTab(props) {
             <div className="clearfix mb-3">
                 <div className="d-flex justify-content-center mainDashBoxes newStyleMN">
                     <div className="flex-itm scr " data-scroll="accordion">
-                        <div className="widgBox c2" id="a4tv" onClick={VisitEmployeeStrengthBox}>
+                        <div className="widgBox c2" id="a4tvH" onClick={VisitEmployeeStrengthBox}>
                             <div className="d-flex  align-items-center">
                                 <div className="icon">
                                       {/* <img src="/assests/images/employees.png" /> */}
@@ -117,7 +118,7 @@ export default function DashboardTeamVisitTab(props) {
                     </div>
 
                     <div className="flex-itm scr " data-scroll="accordion">
-                        <div className="widgBox c3" id="a1tv" onClick={VisitEmployeeAtWorkBox}>
+                        <div className="widgBox c3" id="a1tvH" onClick={VisitEmployeeAtWorkBox}>
                             <div className="d-flex  align-items-center">
                                 <div className="icon">
                                         
@@ -137,7 +138,7 @@ export default function DashboardTeamVisitTab(props) {
                     </div>
 
                     <div className="flex-itm scr " data-scroll="accordion">
-                        <div className="widgBox c5" id="a2tv" onClick={VisitEmployeeOnLeaveBox}>
+                        <div className="widgBox c5" id="a2tvH" onClick={VisitEmployeeOnLeaveBox}>
                             <div className="d-flex  align-items-center">
                                     <div className="icon">
                                         {/* <img src="/assests/images/on-leave.png" /> */}
@@ -155,7 +156,7 @@ export default function DashboardTeamVisitTab(props) {
                     </div>
 
                     <div className="flex-itm scr " data-scroll="accordion">
-                            <div className="widgBox c4" id="a3tv" onClick={VisitEmployeeNotLoggedInBox}>
+                            <div className="widgBox c4" id="a3tvH" onClick={VisitEmployeeNotLoggedInBox}>
                                 <div className="d-flex  align-items-center">
                                     <div className="icon">
                                         {/* <img src="/assests/images/not-loggedin.png" /> */}
@@ -187,7 +188,8 @@ export default function DashboardTeamVisitTab(props) {
     {showTotalEmployeesGrid && (
                 <div className='mt-5'>
                 
-                    <TotalEmployeesTVGrid key="TotalEmployeesTVGrid" apiPort={ApiPort}/>
+                    {/* <TotalEmployeesTVGrid key="TotalEmployeesTVGrid" apiPort={ApiPort}/> */}
+                    <TotalEmployeesTVHGrid key="TotalEmployeesTVHGrid" apiPort={ApiPort}/>
 
                 </div>
             )}
@@ -195,7 +197,8 @@ export default function DashboardTeamVisitTab(props) {
     {showEmployeeAtWorkGrid && (
                 <div className='mt-5'>
 
-                    <EmployeeAtWorkTVGrid key="EmployeeAtWorkTVGrid" apiPort={ApiPort}/>
+                    {/* <EmployeeAtWorkTVGrid key="EmployeeAtWorkTVGrid" apiPort={ApiPort}/> */}
+                    <EmployeeAtWorkTVHGrid key="EmployeeAtWorkTVHGrid" apiPort={ApiPort}/>
                     
                 </div>
             )}
@@ -203,7 +206,8 @@ export default function DashboardTeamVisitTab(props) {
     {showEmployeeOnLeaveGrid && (
                 <div className='mt-5'>
 
-                    <EmployeeOnLeaveTVGrid key="EmployeeOnLeaveTVGrid" apiPort={ApiPort}/>
+                    {/* <EmployeeOnLeaveTVGrid key="EmployeeOnLeaveTVGrid" apiPort={ApiPort}/> */}
+                    <EmployeeOnLeaveTVHGrid key="EmployeeOnLeaveTVHGrid" apiPort={ApiPort}/>
 
                 </div>
             )}
@@ -211,7 +215,7 @@ export default function DashboardTeamVisitTab(props) {
     {showNotLoggedInGrid && (
                 <div className='mt-5'>
 
-                    <EmployeeNotLoggedInTVGrid key="EmployeeNotLoggedInTVGrid" apiPort={ApiPort}/>
+                    <EmployeeNotLoggedInTVHGrid key="EmployeeNotLoggedInTVHGrid" apiPort={ApiPort}/>
 
                 </div>
             )}
